@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanino Ka Lang?</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+        button {
+            font-size: 1rem;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .left {
+            background: linear-gradient(45deg, #37474f, #455a64);
+            color: white;
+        }
+        .right {
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            color: white;
+        }
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        /* Video style */
+        #videoContainer {
+            display: none;
+            margin-top: 20px;
+            width: 80%;
+            max-width: 800px;
+            pointer-events: none; /* Disables interaction with the video */
+        }
+        video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>KANINO KA LANG?</h1>
+    <div class="buttons">
+        <button class="left" id="walaButton">WALA</button>
+        <button class="right" id="mcShaneButton">KAY MC SHANE</button>
+    </div>
+
+    <!-- Video container -->
+    <div id="videoContainer">
+        <video id="videoPlayer" autoplay>
+            <source src="Sadboi.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        const walaButton = document.getElementById('walaButton');
+        const mcShaneButton = document.getElementById('mcShaneButton');
+        const videoContainer = document.getElementById('videoContainer');
+        const videoPlayer = document.getElementById('videoPlayer');
+
+        function randomPosition() {
+            const width = window.innerWidth - walaButton.offsetWidth;
+            const height = window.innerHeight - walaButton.offsetHeight;
+            const x = Math.floor(Math.random() * width);
+            const y = Math.floor(Math.random() * height);
+            walaButton.style.position = 'absolute';
+            walaButton.style.left = `${x}px`;
+            walaButton.style.top = `${y}px`;
+        }
+
+        walaButton.addEventListener('click', function() {
+            randomPosition();  // Lilipat lang kapag pinindot
+            videoContainer.style.display = 'block';  // Ipapakita ang video
+            videoPlayer.play();  // Play video kapag pinindot
+        });
+
+        mcShaneButton.addEventListener('click', function() {
+            window.location.href = "Page1.html";  // Replace with your desired URL
+        });
+    </script>
+</body>
+</html>

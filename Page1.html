@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Dark Blue Gradient with Clickable Video</title>
+    <style>
+        body {
+            /* Set the background gradient */
+            background: linear-gradient(45deg, #2a3d66, #003366, #000080); /* Futuristic dark blue gradient */
+            background-size: 400% 400%; /* Stretch the gradient */
+            animation: gradientAnimation 10s ease infinite; /* Add animation for smooth transition */
+            height: 100vh; /* Full height of the viewport */
+            margin: 0; /* Remove default margin */
+            overflow: hidden; /* Prevent scrollbars */
+            display: flex; /* Center content */
+            justify-content: center; /* Horizontal centering */
+            align-items: center; /* Vertical centering */
+            flex-direction: column; /* Align text and video in a column */
+        }
+
+        /* Create an animation for the gradient effect */
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Style the video element to be futuristic and romantic */
+        video {
+            position: relative;
+            width: 70%; /* Adjust the width to your desired size */
+            height: auto; /* Maintain aspect ratio */
+            border: 5px solid #ff66cc; /* Romantic pink-red border */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 0 20px rgba(255, 102, 204, 0.7); /* Pinkish glow effect */
+            transition: all 0.3s ease; /* Smooth transition for effects */
+            pointer-events: auto; /* Allow click interaction */
+        }
+
+        /* Hover effect to enhance the futuristic and romantic look */
+        video:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
+            box-shadow: 0 0 30px rgba(255, 102, 204, 1); /* Stronger glow on hover */
+        }
+
+        /* Style the text */
+        .text {
+            font-size: 2rem; /* Adjust text size */
+            font-family: 'Arial', sans-serif;
+            color: white; /* White text */
+            text-align: center; /* Center align the text */
+            margin: 10px; /* Space between texts */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Add shadow for better visibility */
+        }
+
+        .text-1 {
+            font-size: 3rem; /* Make the first text larger */
+            font-weight: bold;
+            color: #ff66cc; /* Romantic pink color */
+        }
+
+        .text-2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ffcc00; /* Warm yellow */
+        }
+
+        /* Style for the image */
+        .image-container {
+            margin-bottom: 20px; /* Space between the image and the text */
+        }
+
+        .image-container img {
+            width: 50px; /* Adjust image size */
+            height: auto;
+            border-radius: 50%; /* Round the image if you want */
+        }
+    </style>
+</head>
+<body>
+    <!-- Image above the text -->
+    <div class="image-container">
+        <img src="cute.jpg" alt="Small Image">
+    </div>
+
+    <!-- Text added here -->
+    <div class="text text-1">BAKIT MO AKO PINILI?</div>
+    <div class="text text-2">IKAW AH</div>
+    <div class="text text-3">Ikaw Izzy ah!</div>
+
+    <video id="myVideo" autoplay loop>
+        <source src="Kilig.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <script>
+        const video = document.getElementById('myVideo');
+        
+        // Play the video when clicked
+        video.addEventListener('click', function() {
+            if (video.paused) {
+                video.play();
+            }
+        });
+
+        // Prevent video from being paused (clicking doesn't pause the video)
+        video.addEventListener('pause', function() {
+            video.play(); // Keep the video playing
+        });
+    </script>
+</body>
+</html>
